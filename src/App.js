@@ -1,10 +1,13 @@
 import React from 'react';
 import './App.css';
+import Person from './Person/Person';
 
 function App() {
   return (
     <div className="App">
-      <h4>React App</h4>
+      <h2>React App</h2>
+      <p>This is really working!!!</p>
+      <Person />
     </div>
 
     //without nesting
