@@ -5,9 +5,12 @@ import Person from './Person/Person';
 function App() {
   return (
     <div className="App">
-      <h2>React App</h2>
+      <h2>React mys App</h2>
       <p>This is really working!!!</p>
-      <Person />
+      <Person name="Max" age="28" />
+      <Person name="Ashutosh" age="30"> My Hobbies : Coding </Person>
+      <Person name="Mantoo" age="26" />
+
     </div>
 
     //without nesting
