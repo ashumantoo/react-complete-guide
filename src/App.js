@@ -23,7 +23,16 @@ class App extends Component {
   }
 
   switchNameHandler = () => {
-    console.log('button was clicked');
+    // DON'T DO THIS: this.state.person[0].name = 'Ashutosh Kumar Mantoo';
+    // DON'T Mutate react state directly instead use setState() of the react
+    // setState() method takes the newly defined properties and merged with the old existing state property
+    this.setState({
+      person: [
+        { name: 'Max', age: 29 },
+        { name: "Ashutosh Mantoo", age: 27 },
+        { name: 'John', age: 30 }
+      ]
+    })
   }
 
   render() {
@@ -45,7 +54,7 @@ class App extends Component {
         <button onClick={this.switchNameHandler}>Switch Name</button>
         <Person name={this.state.person[0].name} age={this.state.person[0].age} />
         <Person name={this.state.person[1].name} age={this.state.person[1].age}> My Hobbies : Coding </Person>
-        <Person name={this.state.person[2].name} age={this.state.person[0].age} />
+        <Person name={this.state.person[2].name} age={this.state.person[2].age} />
       </div>
 
       //without nesting
