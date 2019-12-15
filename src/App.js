@@ -21,6 +21,11 @@ class App extends Component {
       { name: 'John', age: 35 }
     ]
   }
+
+  switchNameHandler = () => {
+    console.log('button was clicked');
+  }
+
   render() {
     return (
       <div className="App" >
@@ -33,9 +38,11 @@ class App extends Component {
         <Person name="Mantoo" age="26" /> */}
 
 
-        <h2>React mys App</h2>
+        <h2>My React App</h2>
         <p>This is really working!!!</p>
-        <button>Switch Name</button>
+        {/* Here in onClick, Don't call method with parentheses=() Because it calls immediately as 
+            React render the Dom so Just pass the reference of the function to the onClick*/}
+        <button onClick={this.switchNameHandler}>Switch Name</button>
         <Person name={this.state.person[0].name} age={this.state.person[0].age} />
         <Person name={this.state.person[1].name} age={this.state.person[1].age}> My Hobbies : Coding </Person>
         <Person name={this.state.person[2].name} age={this.state.person[0].age} />
