@@ -62,8 +62,6 @@ class Basic extends Component {
                     <Person name="Ashutosh" age="30"> My Hobbies : Coding </Person>
                     <Person name="Mantoo" age="26" /> */}
 
-                <h2>My React App</h2>
-                <p>This is really working!!!</p>
                 {/* Here in onClick, Don't call method with parentheses=() Because it calls immediately as 
                     React render the Dom so Just pass the reference of the function to the onClick
 
@@ -78,6 +76,7 @@ class Basic extends Component {
                     behaviour of the app.
             */}
                 {/* <button onClick={this.switchNameHandler}>Switch Name</button> */}
+                <h4>Basic Example</h4>
                 <button style={buttonStyle} onClick={() => this.switchNameHandler('Mantoo!!!')}>Switch Name</button>
                 <Person name={this.state.person[0].name} age={this.state.person[0].age} click={this.switchNameHandler.bind(this, 'Ashutosh Kumar')} />
                 <Person name={this.state.person[1].name} age={this.state.person[1].age} changed={this.nameChangedHandler}> My Hobbies : Coding </Person>
