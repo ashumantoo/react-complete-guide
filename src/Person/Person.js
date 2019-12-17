@@ -10,6 +10,7 @@ const person = (props) => {
             {/* This children on props will get the value which is 
                 defined between the opening and closing tag of the element */}
             <p> {props.children} </p>
+            <input type="text" onChange={props.changed} value={props.name} />
         </div>
     );
 }
