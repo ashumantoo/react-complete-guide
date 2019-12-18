@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Radium from 'radium';
 import Person from '../Person/Person';
 
 class ListAndConditionals extends Component {
@@ -58,7 +59,11 @@ class ListAndConditionals extends Component {
             font: 'inherit',
             border: '1px solid blue',
             padding: '8px',
-            cursor: 'pointer'
+            cursor: 'pointer',
+            ':hover': {
+                backgroundColor: 'lightgreen',
+                color: 'black'
+            }
         }
 
         let persons = null;
@@ -83,6 +88,10 @@ class ListAndConditionals extends Component {
                 </div>
             );
             buttonStyle.backgroundColor = 'red';
+            buttonStyle[':hover'] = {
+                backgroundColor: 'salmon',
+                color: 'black'
+            }
         }
 
         const classes = [];
@@ -110,4 +119,4 @@ class ListAndConditionals extends Component {
     }
 }
 
-export default ListAndConditionals;
+export default Radium(ListAndConditionals);
