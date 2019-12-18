@@ -12,14 +12,28 @@ class ListAndConditionals extends Component {
         showPerson: false
     }
 
-    nameChangedHandler = (event) => {
-        this.setState({
-            person: [
-                { name: 'Max', age: 29 },
-                { name: event.target.value, age: 27 },
-                { name: 'John', age: 30 }
-            ]
-        })
+    nameChangedHandler = (event, id) => {
+        const personIndex = this.state.person.findIndex(p => {
+            return p.id === id;
+        });
+
+        const person = {
+            ...this.state.person[personIndex]
+        }
+        // const person = Object.assign({}, this.state.person[personIndex]);
+        person.name = event.target.value;
+        const persons = [...this.state.person];
+        persons[personIndex] = person;
+
+        this.setState({ person: persons });
+
+        // this.setState({
+        //     person: [
+        //         { name: 'Max', age: 29 },
+        //         { name: event.target.value, age: 27 },
+        //         { name: 'John', age: 30 }
+        //     ]
+        // })
     }
 
     togglePersonsHandler = () => {
@@ -57,6 +71,8 @@ class ListAndConditionals extends Component {
                             age={person.age}
                             click={() => this.removePersonHandler(index)}
                             key={person.id}
+                            // eslint-disable-next-line no-restricted-globals
+                            changed={() => this.nameChangedHandler(event, person.id)}
                         />
                     })}
                     {/* 
