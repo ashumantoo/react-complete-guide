@@ -12,16 +12,6 @@ class ListAndConditionals extends Component {
         showPerson: false
     }
 
-    switchNameHandler = (newName) => {
-        this.setState({
-            person: [
-                { name: 'Max', age: 29 },
-                { name: newName, age: 27 },
-                { name: 'John', age: 30 }
-            ]
-        })
-    }
-
     nameChangedHandler = (event) => {
         this.setState({
             person: [
@@ -35,6 +25,12 @@ class ListAndConditionals extends Component {
     togglePersonsHandler = () => {
         const doesShow = this.state.showPerson;
         this.setState({ showPerson: !doesShow })
+    }
+
+    removePersonHandler = (personIndex) => {
+        const persons = this.state.person;
+        persons.splice(personIndex, 1);
+        this.setState({ persons: persons });
     }
 
     render() {
@@ -51,8 +47,8 @@ class ListAndConditionals extends Component {
         if (this.state.showPerson) {
             persons = (
                 <div>
-                    {this.state.person.map(person => {
-                        return <Person name={person.name} age={person.age} />
+                    {this.state.person.map((person, index) => {
+                        return <Person name={person.name} age={person.age} click={() => this.removePersonHandler(index)} />
                     })}
                     {/* 
                     <Person name={this.state.person[0].name} age={this.state.person[0].age} click={this.switchNameHandler.bind(this, 'Ashutosh Kumar')} />
