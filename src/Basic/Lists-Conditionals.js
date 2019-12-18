@@ -4,37 +4,51 @@ import Person from '../Person/Person';
 class ListAndConditionals extends Component {
     state = {
         person: [
-            { name: 'Max', age: 29 },
-            { name: "Ashutosh", age: 27 },
-            { name: 'John', age: 35 }
+            { id: 'asdf1', name: 'Max', age: 29 },
+            { id: 'afdrd1', name: "Ashutosh", age: 27 },
+            { id: 'dfdf1', name: 'John', age: 35 }
         ],
         otherState: 'some other value',
         showPerson: false
     }
 
-    switchNameHandler = (newName) => {
-        this.setState({
-            person: [
-                { name: 'Max', age: 29 },
-                { name: newName, age: 27 },
-                { name: 'John', age: 30 }
-            ]
-        })
-    }
+    nameChangedHandler = (event, id) => {
+        const personIndex = this.state.person.findIndex(p => {
+            return p.id === id;
+        });
 
-    nameChangedHandler = (event) => {
-        this.setState({
-            person: [
-                { name: 'Max', age: 29 },
-                { name: event.target.value, age: 27 },
-                { name: 'John', age: 30 }
-            ]
-        })
+        const person = {
+            ...this.state.person[personIndex]
+        }
+        // const person = Object.assign({}, this.state.person[personIndex]);
+        person.name = event.target.value;
+        const persons = [...this.state.person];
+        persons[personIndex] = person;
+
+        this.setState({ person: persons });
+
+        // this.setState({
+        //     person: [
+        //         { name: 'Max', age: 29 },
+        //         { name: event.target.value, age: 27 },
+        //         { name: 'John', age: 30 }
+        //     ]
+        // })
     }
 
     togglePersonsHandler = () => {
         const doesShow = this.state.showPerson;
         this.setState({ showPerson: !doesShow })
+    }
+
+    removePersonHandler = (personIndex) => {
+
+        //Directly working on the array is not a good practice
+        //best way to make a copy of that array and then start manipulation using the splice()
+        // const persons = this.state.person.slice();
+        const persons = [...this.state.person];
+        persons.splice(personIndex, 1);
+        this.setState({ person: persons });
     }
 
     render() {
@@ -51,8 +65,15 @@ class ListAndConditionals extends Component {
         if (this.state.showPerson) {
             persons = (
                 <div>
-                    {this.state.person.map(person => {
-                        return <Person name={person.name} age={person.age} />
+                    {this.state.person.map((person, index) => {
+                        return <Person
+                            name={person.name}
+                            age={person.age}
+                            click={() => this.removePersonHandler(index)}
+                            key={person.id}
+                            // eslint-disable-next-line no-restricted-globals
+                            changed={() => this.nameChangedHandler(event, person.id)}
+                        />
                     })}
                     {/* 
                     <Person name={this.state.person[0].name} age={this.state.person[0].age} click={this.switchNameHandler.bind(this, 'Ashutosh Kumar')} />
