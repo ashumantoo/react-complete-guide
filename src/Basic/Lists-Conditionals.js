@@ -85,9 +85,17 @@ class ListAndConditionals extends Component {
             buttonStyle.backgroundColor = 'red';
         }
 
+        const classes = [];
+        if (this.state.person.length <= 2) {
+            classes.push('red'); // classes = ['red']
+        }
+        if (this.state.person.length <= 1) {
+            classes.push('bold'); //classes = ['red','bold']
+        }
+
         return (
             <div>
-                <h4>List and Conditional Example</h4>
+                <h4 className={classes.join(' ')}>List and Conditional Example</h4>
                 <button style={buttonStyle} onClick={this.togglePersonsHandler}>Toggle Persons</button>
                 {/* {this.state.showPerson ?
                     <div>

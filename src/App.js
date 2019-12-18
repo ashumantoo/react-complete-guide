@@ -4,10 +4,13 @@ import Basic from './Basic/Basic';
 import ListAndConditional from './Basic/Lists-Conditionals'
 class App extends Component {
   render() {
+
+    const classes = ['font', 'skyblue'].join(' '); // this join gives "red bold"
+
     return (
       <div className="App" >
         <h1>My React App</h1>
-        <p>This is really working!!!</p>
+        <p className={classes}>This is really working!!!</p>
         {/* <Basic></Basic> */}
         <hr></hr>
         <ListAndConditional></ListAndConditional>
