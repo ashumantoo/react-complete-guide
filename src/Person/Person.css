@@ -7,3 +7,12 @@
     padding: 16px;
     text-align: center;
 }
+
+/*
+This is one solution of adding the media query to a css file
+*/
+/* @media (min-width:500px){
+    .Person {
+        width: 450px;
+    }
+} */
