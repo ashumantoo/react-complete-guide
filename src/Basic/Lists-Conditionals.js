@@ -53,7 +53,8 @@ class ListAndConditionals extends Component {
 
     render() {
         const buttonStyle = {
-            backgroundColor: 'White',
+            backgroundColor: 'green',
+            color: 'white',
             font: 'inherit',
             border: '1px solid blue',
             padding: '8px',
@@ -81,6 +82,7 @@ class ListAndConditionals extends Component {
                     <Person name={this.state.person[2].name} age={this.state.person[2].age} /> */}
                 </div>
             );
+            buttonStyle.backgroundColor = 'red';
         }
 
         return (
