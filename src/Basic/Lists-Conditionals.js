@@ -4,9 +4,9 @@ import Person from '../Person/Person';
 class ListAndConditionals extends Component {
     state = {
         person: [
-            { name: 'Max', age: 29 },
-            { name: "Ashutosh", age: 27 },
-            { name: 'John', age: 35 }
+            { id: 'asdf1', name: 'Max', age: 29 },
+            { id: 'afdrd1', name: "Ashutosh", age: 27 },
+            { id: 'dfdf1', name: 'John', age: 35 }
         ],
         otherState: 'some other value',
         showPerson: false
@@ -28,9 +28,13 @@ class ListAndConditionals extends Component {
     }
 
     removePersonHandler = (personIndex) => {
-        const persons = this.state.person;
+
+        //Directly working on the array is not a good practice
+        //best way to make a copy of that array and then start manipulation using the splice()
+        // const persons = this.state.person.slice();
+        const persons = [...this.state.person];
         persons.splice(personIndex, 1);
-        this.setState({ persons: persons });
+        this.setState({ person: persons });
     }
 
     render() {
@@ -48,7 +52,12 @@ class ListAndConditionals extends Component {
             persons = (
                 <div>
                     {this.state.person.map((person, index) => {
-                        return <Person name={person.name} age={person.age} click={() => this.removePersonHandler(index)} />
+                        return <Person
+                            name={person.name}
+                            age={person.age}
+                            click={() => this.removePersonHandler(index)}
+                            key={person.id}
+                        />
                     })}
                     {/* 
                     <Person name={this.state.person[0].name} age={this.state.person[0].age} click={this.switchNameHandler.bind(this, 'Ashutosh Kumar')} />
