@@ -2,6 +2,10 @@ import React, { Component } from "react";
 import Person from '../Persons/persons';
 
 class ListAndConditionals extends Component {
+    constructor(props) {
+        super(props)
+        console.log('[List.js] --> Constructor');
+    }
     state = {
         person: [
             { id: 'asdf1', name: 'Max', age: 29 },
@@ -10,6 +14,15 @@ class ListAndConditionals extends Component {
         ],
         otherState: 'some other value',
         showPerson: false
+    }
+
+    static getDerivedStateFromProps(props, state) {
+        console.log('[List.js] --> getDrivedStateFromProps ', props);
+        return state;
+    }
+
+    componentDidMount() {
+        console.log('[List.js] ---> componentDidMount');
     }
 
     nameChangedHandler = (event, id) => {
@@ -40,6 +53,8 @@ class ListAndConditionals extends Component {
     }
 
     render() {
+        console.log('[List.js] ---> render');
+
         const buttonStyle = {
             backgroundColor: 'green',
             color: 'white',
@@ -57,7 +72,7 @@ class ListAndConditionals extends Component {
                     <Person
                         persons={this.state.person}
                         clicked={this.removePersonHandler}
-                        changed={this.togglePersonsHandler} />
+                        changed={this.nameChangedHandler} />
                 </div>
             );
             buttonStyle.backgroundColor = 'red';
