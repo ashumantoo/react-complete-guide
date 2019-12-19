@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import ErrorBoundary from '../ErrorBoundary/ErrorBoundary';
 import Person from '../Person/Person';
 
 class ListAndConditionals extends Component {
@@ -61,20 +62,26 @@ class ListAndConditionals extends Component {
             cursor: 'pointer',
         }
 
+        const rnd = Math.random();
+        if (rnd > 0.7) {
+            throw new Error('Something went wrong');
+        }
+
         let persons = null;
 
         if (this.state.showPerson) {
             persons = (
                 <div>
                     {this.state.person.map((person, index) => {
-                        return <Person
-                            name={person.name}
-                            age={person.age}
-                            click={() => this.removePersonHandler(index)}
-                            key={person.id}
-                            // eslint-disable-next-line no-restricted-globals
-                            changed={() => this.nameChangedHandler(event, person.id)}
-                        />
+                        return <ErrorBoundary key={person.id}>
+                            <Person
+                                name={person.name}
+                                age={person.age}
+                                click={() => this.removePersonHandler(index)}
+                                // eslint-disable-next-line no-restricted-globals
+                                changed={() => this.nameChangedHandler(event, person.id)}
+                            />
+                        </ErrorBoundary>
                     })}
                     {/* 
                     <Person name={this.state.person[0].name} age={this.state.person[0].age} click={this.switchNameHandler.bind(this, 'Ashutosh Kumar')} />

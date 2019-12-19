@@ -10,7 +10,7 @@ const person = (props) => {
     return (
         {/* Props is simply an object giving access to all 
         the attributes which we pass to our own component */ },
-
+        
         <div className="Person" style={style}>
             <p onClick={props.click}>I am {props.name} and I am {props.age} year old.</p>
             {/* This children on props will get the value which is 
