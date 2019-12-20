@@ -25,6 +25,15 @@ class ListAndConditionals extends Component {
         console.log('[List.js] ---> componentDidMount');
     }
 
+    shouldComponentUpdate(nextProps, nextState) {
+        console.log('[list.js] shouldComponentUpdate');
+        return true;
+    }
+
+    componentDidUpdate() {
+        console.log('[list.js] componentDidUpdate');
+    }
+
     nameChangedHandler = (event, id) => {
         const personIndex = this.state.person.findIndex(p => {
             return p.id === id;
