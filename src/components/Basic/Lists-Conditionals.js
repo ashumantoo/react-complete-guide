@@ -34,6 +34,11 @@ class ListAndConditionals extends Component {
         console.log('[list.js] componentDidUpdate');
     }
 
+    //this lifecycle hook used for the cleanup work
+    componentWillUnmount() {
+        console.log('[list.js] componentWillMount');
+    }
+
     nameChangedHandler = (event, id) => {
         const personIndex = this.state.person.findIndex(p => {
             return p.id === id;
