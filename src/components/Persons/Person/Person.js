@@ -15,12 +15,24 @@ class Person extends Component {
         this.inputElementRef.current.focus(); // react 16.3
     }
 
-    //****************************************************************** ***************/
+    //****************************************************************** ****************************/
     // Here This render() using return with a single div element
-    //==================================================================================
+    //===============================================================================================
     //
-    //==================================================================================
-    // ref Property of the React used to focused on the input element
+    //===============================================================================================
+    // ref Property of the React used to focused on the input element inside a class based components
+    //
+    // If we want to use this ref property of react inside a functional based components we should
+    // used the useRef() hook by assigning its value to a const and then call it inside the useEffect()
+    // this is necessary to use this ref inside the useEffect() hook because useEffect() render after
+    // the react dom completely render the page, otherwise this ref will gives an error of undefiled
+    // hook e.g for clicking a button
+    /** 
+        const toggleButtonRef = useRef(null);
+        useEffect(){
+            toggleButtonRef.current.click();
+        }
+    ==================================================================================================*/
     render() {
         console.log('[Person.js] rendering ....');
         return (
