@@ -6,7 +6,7 @@ const withClass = (WrappedComponent, className) => {
     //this is a second method of creating higher order components(HOC)
     return props => (
         <div className={className}>
-            <WrappedComponent />
+            <WrappedComponent {...props} />
         </div>
     );
 }

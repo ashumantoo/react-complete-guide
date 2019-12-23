@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import Aux from '../../../hoc/Aux';
+import withClass from '../../../hoc/withClass';
 import './Person.css';
 
 class Person extends Component {
@@ -7,32 +8,32 @@ class Person extends Component {
     //****************************************************************** ***************/
     // Here This render() using return with a single div element
     //==================================================================================
-    render() {
-        console.log('[Person.js] rendering ....');
-        return (
-            <div className="Person" >
-                <p onClick={this.props.click}>I am {this.props.name} and I am {this.props.age} year old.</p>
-                <p> {this.props.children} </p>
-                <input type="text" onChange={this.props.changed} value={this.props.name} />
-            </div>
-        );
-    }
+    // render() {
+    //     console.log('[Person.js] rendering ....');
+    //     return (
+    //         <div className="Person" >
+    //             <p onClick={this.props.click}>I am {this.props.name} and I am {this.props.age} year old.</p>
+    //             <p> {this.props.children} </p>
+    //             <input type="text" onChange={this.props.changed} value={this.props.name} />
+    //         </div>
+    //     );
+    // }
 
     //==========================================================================================
     // Here We using the Auxiliary method to render the multiple adjacent element simultaneously 
     // Using the Higher Order Component Aux is a higher order component
     // Higher Order Component is a Component which wraps another component
     //==========================================================================================
-    // render() {
-    //     console.log('[Person.js] rendering ....');
-    //     return (
-    //         <Aux>
-    //             <p onClick={this.props.click}>I am {this.props.name} and I am {this.props.age} year old.</p>
-    //             <p> {this.props.children} </p>
-    //             <input type="text" onChange={this.props.changed} value={this.props.name} />
-    //         </Aux>
-    //     );
-    // }
+    render() {
+        console.log('[Person.js] rendering ....');
+        return (
+            <Aux>
+                <p onClick={this.props.click}>I am {this.props.name} and I am {this.props.age} year old.</p>
+                <p> {this.props.children} </p>
+                <input type="text" onChange={this.props.changed} value={this.props.name} />
+            </Aux>
+        );
+    }
 
 
     //=========================================================================================
@@ -51,4 +52,5 @@ class Person extends Component {
 
 }
 
-export default Person;
+// export default Person;
+export default withClass(Person);
