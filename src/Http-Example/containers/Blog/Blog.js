@@ -17,7 +17,7 @@ class Blog extends Component {
         axios
             .get('https://jsonplaceholder.typicode.com/posts')
             .then(res => {
-                console.log(res);
+                // console.log(res);
                 //the response give 100 post at a time, just display 4 out of 100
                 const posts = res.data.slice(0, 4);
                 const updatedPosts = posts.map(post => {
