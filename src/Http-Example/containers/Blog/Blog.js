@@ -16,7 +16,7 @@ class Blog extends Component {
 
     componentDidMount() {
         axios
-            .get('https://jsonplaceholder.typicode.com/posts')
+            .get('/posts')
             .then(res => {
                 // console.log(res);
                 //the response give 100 post at a time, just display 4 out of 100
