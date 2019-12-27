@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import './App.css';
 // import WithClass from './src/hoc/WithClass';
-import withClass from './hoc/withClass';
+// import withClass from './hoc/withClass';
 import Cockpit from './components/Cockpit/Cockpit';
-import Aux from './hoc/Aux'
+// import Aux from './hoc/Aux'
 // import Basic from './Basic/Basic';
 import ListAndConditional from './components/Basic/Lists-Conditionals'
+
+import Blog from './Http-Example/containers/Blog/Blog';
 class App extends Component {
   render() {
     return (
@@ -25,17 +27,22 @@ class App extends Component {
       // </WithClass>
 
       //using the 2nd HOC approach
-      <Aux className="App" >
-        <Cockpit></Cockpit>
-        {/* <Basic></Basic> */}
-        <hr></hr>
-        <ListAndConditional></ListAndConditional>
-      </Aux>
+      // <Aux className="App" >
+      //   <Cockpit></Cockpit>
+      //   {/* <Basic></Basic> */}
+      //   <hr></hr>
+      //   <ListAndConditional></ListAndConditional>
+      // </Aux>
+
+      //Reaching Out Http request and response in React example
+      <div>
+        <Blog />
+      </div>
     );
   }
 }
 
-// export default App;
+export default App;
 
 //2nd HOC approach
-export default withClass(App, "App");
+// export default withClass(App, "App");
