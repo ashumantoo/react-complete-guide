@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import './App.css';
-import WithClass from '../hoc/WithClass';
-import withClass from '../hoc/withClass';
-import Cockpit from '../components/Cockpit/Cockpit';
-import Aux from '../hoc/Aux'
+// import WithClass from './src/hoc/WithClass';
+import withClass from './hoc/withClass';
+import Cockpit from './components/Cockpit/Cockpit';
+import Aux from './hoc/Aux'
 // import Basic from './Basic/Basic';
-import ListAndConditional from '../components/Basic/Lists-Conditionals'
+import ListAndConditional from './components/Basic/Lists-Conditionals'
 class App extends Component {
   render() {
     return (
