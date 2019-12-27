@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import './App.css';
 // import WithClass from './src/hoc/WithClass';
 // import withClass from './hoc/withClass';
-import Cockpit from './components/Cockpit/Cockpit';
+// import Cockpit from './components/Cockpit/Cockpit';
 // import Aux from './hoc/Aux'
 // import Basic from './Basic/Basic';
-import ListAndConditional from './components/Basic/Lists-Conditionals'
+// import ListAndConditional from './components/Basic/Lists-Conditionals'
 
 import Blog from './Http-Example/containers/Blog/Blog';
 class App extends Component {
