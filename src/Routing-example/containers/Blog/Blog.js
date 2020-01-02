@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Route } from 'react-router-dom';
 
 import classes from './Blog.module.css';
 import Posts from '../../containers/Posts/Posts';
@@ -17,7 +18,8 @@ class RoutingBlog extends Component {
                         </ul>
                     </nav>
                 </header>
-                <Posts />
+                {/* <Posts /> */}
+                <Route path="/" exact render={() => <h1>Home</h1>} />
             </div>
         );
     }
