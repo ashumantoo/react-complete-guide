@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { BrowserRouter } from 'react-router-dom';
 import './App.css';
 // import WithClass from './src/hoc/WithClass';
 // import withClass from './hoc/withClass';
@@ -7,7 +8,8 @@ import './App.css';
 // import Basic from './Basic/Basic';
 // import ListAndConditional from './components/Basic/Lists-Conditionals'
 
-import Blog from './Http-Example/containers/Blog/Blog';
+// import Blog from './Http-Example/containers/Blog/Blog';
+import RoutingBlog from './Routing-example/containers/Blog/Blog';
 class App extends Component {
   render() {
     return (
@@ -35,9 +37,16 @@ class App extends Component {
       // </Aux>
 
       //Reaching Out Http request and response in React example
-      <div>
-        <Blog />
-      </div>
+      // <div>
+      //   <Blog />
+      // </div>
+
+      //Routing Example Blog Component
+      <BrowserRouter>
+        <div>
+          <RoutingBlog />
+        </div>
+      </BrowserRouter>
     );
   }
 }
