@@ -10,11 +10,25 @@ class Posts extends Component {
     }
 
     componentDidMount() {
-        //===========================================================================
-        //this is the props provided by the router
-        //so react router just not routes the component to different routes but also
-        //it provides some value in the props
-        //===========================================================================
+        /**
+         *===========================================================================
+         this is the props provided by the router
+         so react router just not routes the component to different routes but also
+         it provides some value in the props
+        
+        --------------------------------------------------------------------
+          -->This routing props does not gets passed down to the component it only
+             passed to the called routes component e.g here the routing props from the
+             <Posts> components will not get passed to the <Post> single post component
+             because the <Post> component does not know anything about the routes
+          -->Thus if we want to use the routing props we should pass this props from 
+             the posts component to the post component using the property binding
+        
+          --> Or we can use the react router dom higher order component, withRouter(),
+              wrapping the component with the withRouter() hoc.
+        
+         ===========================================================================
+         */
         // console.log(this.props);
         axios
             .get('/posts')
