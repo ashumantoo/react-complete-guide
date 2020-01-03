@@ -10,6 +10,12 @@ class Posts extends Component {
     }
 
     componentDidMount() {
+        //===========================================================================
+        //this is the props provided by the router
+        //so react router just not routes the component to different routes but also
+        //it provides some value in the props
+        //===========================================================================
+        // console.log(this.props);
         axios
             .get('/posts')
             .then(res => {
