@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Link } from 'react-router-dom';
+import { Route, NavLink } from 'react-router-dom';
 
 import classes from './Blog.module.css';
 import Posts from '../../containers/Posts/Posts';
@@ -30,12 +30,27 @@ class RoutingBlog extends Component {
                              *   which can accept some parameters on the params
                              * 
                              */}
-                            <li><Link to="/">Home</Link></li>
+                            {/* <li><Link to="/">Home</Link></li>
                             <li><Link to={{
                                 pathname: '/new-post',
                                 hash: '#submit',
                                 search: '?submit=true'
-                            }}>New Post</Link></li>
+                            }}>New Post</Link></li> */}
+
+                            <li><NavLink
+                                to="/"
+                                exact
+                                activeClassName="my-active"
+                                activeStyle={{
+                                    color:'#fa293f',
+                                    textDecoration:'none'
+                                }}
+                                >Home</NavLink></li>
+                            <li><NavLink to={{
+                                pathname: '/new-post',
+                                hash: '#submit',
+                                search: '?submit=true'
+                            }}>New Post</NavLink></li>
                         </ul>
                     </nav>
                 </header>
