@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 
 import classes from './Blog.module.css';
 import Posts from '../../containers/Posts/Posts';
@@ -14,8 +14,28 @@ class RoutingBlog extends Component {
                 <header>
                     <nav>
                         <ul>
+                            {/* 
                             <li><a href="/">Home</a></li>
-                            <li><a href="/new-post">New Post</a></li>
+                            <li><a href="/new-post">New Post</a></li> 
+                            */}
+
+                            {/**
+                             * - Using Link property of the react router to stop app from 
+                             *   reloading on the visiting to the new route instead of anchor tag
+                             * 
+                             * - Internally, React dom also converts this 'Link to' into the anchor
+                             *   tag
+                             * 
+                             * - Link 'to' property can be a string as well as it can be a object
+                             *   which can accept some parameters on the params
+                             * 
+                             */}
+                            <li><Link to="/">Home</Link></li>
+                            <li><Link to={{
+                                pathname: '/new-post',
+                                hash: '#submit',
+                                search: '?submit=true'
+                            }}>New Post</Link></li>
                         </ul>
                     </nav>
                 </header>
