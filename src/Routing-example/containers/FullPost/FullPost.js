@@ -8,7 +8,7 @@ class FullPost extends Component {
         loadedPost: null
     }
 
-    componentDidUpdate() {
+    /*componentDidUpdate() {
         //This componentDidMound() life cycle hook sometimes creates the infinite loop
         //because as it once load the loadedPost its always start loading again and again 
         // the same post.
@@ -17,6 +17,23 @@ class FullPost extends Component {
         if (this.props.id) {
             if (!this.state.loadedPost || (this.state.loadedPost && this.state.loadedPost.id !== this.props.id)) {
                 axios.get('/posts/' + this.props.id)
+                    .then(response => {
+                        console.log(response);
+                        this.setState({ loadedPost: response.data });
+                    })
+                    .catch(error => {
+                        console.log(error);
+                    })
+            }
+        }
+    }
+    */
+
+    componentDidMount() {
+        //getting the id from the params
+        if (this.props.match.params.id) {
+            if (!this.state.loadedPost || (this.state.loadedPost && this.state.loadedPost.id !== this.props.id)) {
+                axios.get('/posts/' + this.props.match.params.id)
                     .then(response => {
                         console.log(response);
                         this.setState({ loadedPost: response.data });

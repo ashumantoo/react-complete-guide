@@ -4,6 +4,7 @@ import { Route, NavLink } from 'react-router-dom';
 import classes from './Blog.module.css';
 import Posts from '../../containers/Posts/Posts';
 import NewPost from '../NewPost/NewPost';
+import FullPost from '../../containers/FullPost/FullPost';
 
 
 class RoutingBlog extends Component {
@@ -42,10 +43,10 @@ class RoutingBlog extends Component {
                                 exact
                                 activeClassName="my-active"
                                 activeStyle={{
-                                    color:'#fa293f',
-                                    textDecoration:'none'
+                                    color: '#fa293f',
+                                    textDecoration: 'none'
                                 }}
-                                >Home</NavLink></li>
+                            >Home</NavLink></li>
                             <li><NavLink to={{
                                 pathname: '/new-post',
                                 hash: '#submit',
@@ -60,7 +61,7 @@ class RoutingBlog extends Component {
 
                 <Route path="/" exact component={Posts} />
                 <Route path="/new-post" component={NewPost} />
-
+                <Route path="/:id" component={FullPost} />
             </div>
         );
     }

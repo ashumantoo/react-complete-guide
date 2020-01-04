@@ -21,6 +21,5 @@
 .Blog a:active,
 .Blog a.active {
     color: #fa933f;
-    text-decoration: underline;
 }
 
