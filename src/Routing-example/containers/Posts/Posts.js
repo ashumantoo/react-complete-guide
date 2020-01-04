@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 
 import Post from '../../components/Post/Post';
+import FullPost from '../FullPost/FullPost';
 import classes from './Posts.module.css';
 
 class Posts extends Component {
@@ -56,8 +57,8 @@ class Posts extends Component {
         // Navigating to the page by programmatically using the react router props history
         // method, push();
         // pushing a new page in page stack of the browser.
-        // this.props.history.push('/' + id);
-        this.props.history.push({ pathname: '/' + id });
+        // this.props.history.push('/posts/' + id);
+        this.props.history.push({ pathname: '/posts/' + id });
     }
 
     render() {
@@ -66,7 +67,7 @@ class Posts extends Component {
             posts = this.state.posts.map(post => {
                 return (
                     //Navigating to the page using the Link and to of the react router dom
-                    // <Link to={'/' + post.id} key={post.id}>
+                    // <Link to={'/posts/' + post.id} key={post.id}>
                     <Post
                         key={post.id}
                         title={post.title}
@@ -78,9 +79,13 @@ class Posts extends Component {
             });
         }
         return (
-            <section className={classes.Posts}>
-                {posts}
-            </section>
+            <div>
+                <section className={classes.Posts}>
+                    {posts}
+                </section>
+                {/** Nested routing this will load post details below the posts component */}
+                <Route path="/posts/:id" exact component={FullPost} />
+            </div>
         )
     }
 }

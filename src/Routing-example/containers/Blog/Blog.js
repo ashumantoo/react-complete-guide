@@ -4,7 +4,6 @@ import { Route, NavLink, Switch } from 'react-router-dom';
 import classes from './Blog.module.css';
 import Posts from '../../containers/Posts/Posts';
 import NewPost from '../NewPost/NewPost';
-import FullPost from '../../containers/FullPost/FullPost';
 
 
 class RoutingBlog extends Component {
@@ -39,7 +38,7 @@ class RoutingBlog extends Component {
                             }}>New Post</Link></li> */}
 
                             <li><NavLink
-                                to="/"
+                                to="/posts"
                                 exact
                                 activeClassName="my-active"
                                 activeStyle={{
@@ -78,9 +77,8 @@ class RoutingBlog extends Component {
 
                 {/** Switch will load only one matching route if it found more than one matching route */}
                 <Switch>
-                    <Route path="/" exact component={Posts} />
                     <Route path="/new-post" component={NewPost} />
-                    <Route path="/:id" component={FullPost} />
+                    <Route path="/posts" component={Posts} />
                 </Switch>
             </div>
         );
