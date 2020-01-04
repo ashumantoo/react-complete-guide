@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, NavLink } from 'react-router-dom';
+import { Route, NavLink, Switch } from 'react-router-dom';
 
 import classes from './Blog.module.css';
 import Posts from '../../containers/Posts/Posts';
@@ -59,9 +59,29 @@ class RoutingBlog extends Component {
                 {/* <Route path="/" exact render={() => <h1>Home</h1>} /> */}
                 {/* <Route path="/" render={() => <h2>Home 2</h2>} /> */}
 
+                {/* 
+                 ===========================================================================
+                 --> Here path="/:id" and path="/new-post" are similar because react router
+                    in path="/new-post" treat new-post as an id for the path="/:id"
+
+                 --> So react router does not distinguished between these two routes and it
+                     loads both routes simultaneously.
+
+                 --> So to solve this issue we should use Switch from the react router dom
+                     it tells react to just load only one best fitting routes which its gets
+                     first.
+                ============================================================================      
                 <Route path="/" exact component={Posts} />
                 <Route path="/new-post" component={NewPost} />
-                <Route path="/:id" component={FullPost} />
+                <Route path="/:id" component={FullPost} /> 
+                */}
+
+                {/** Switch will load only one matching route if it found more than one matching route */}
+                <Switch>
+                    <Route path="/" exact component={Posts} />
+                    <Route path="/new-post" component={NewPost} />
+                    <Route path="/:id" component={FullPost} />
+                </Switch>
             </div>
         );
     }
