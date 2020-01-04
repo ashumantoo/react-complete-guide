@@ -51,7 +51,13 @@ class Posts extends Component {
     }
 
     postSelectedHandler = (id) => {
-        this.setState({ selectedPostId: id });
+        // this.setState({ selectedPostId: id });
+
+        // Navigating to the page by programmatically using the react router props history
+        // method, push();
+        // pushing a new page in page stack of the browser.
+        // this.props.history.push('/' + id);
+        this.props.history.push({ pathname: '/' + id });
     }
 
     render() {
@@ -59,13 +65,15 @@ class Posts extends Component {
         if (!this.state.error) {
             posts = this.state.posts.map(post => {
                 return (
-                    <Link to={'/' + post.id} key={post.id}>
-                        <Post
-                            title={post.title}
-                            author={post.author}
-                            clicked={() => { this.postSelectedHandler(post.id) }}
-                        />
-                    </Link>
+                    //Navigating to the page using the Link and to of the react router dom
+                    // <Link to={'/' + post.id} key={post.id}>
+                    <Post
+                        key={post.id}
+                        title={post.title}
+                        author={post.author}
+                        clicked={() => { this.postSelectedHandler(post.id) }}
+                    />
+                    // </Link>
                 )
             });
         }
