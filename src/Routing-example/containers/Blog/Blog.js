@@ -7,8 +7,10 @@ import NewPost from '../NewPost/NewPost';
 
 
 class RoutingBlog extends Component {
+    state = {
+        isAuthenticated: true
+    }
     render() {
-
         return (
             <div className={classes.Blog}>
                 <header>
@@ -77,13 +79,19 @@ class RoutingBlog extends Component {
 
                 {/** Switch will load only one matching route if it found more than one matching route */}
                 <Switch>
-                    <Route path="/new-post" component={NewPost} />
+                    {/* Handling auth guard in react router */}
+                    {this.state.isAuthenticated ? <Route path="/new-post" component={NewPost} /> : null}
                     <Route path="/posts" component={Posts} />
+
+                    {/*
+                    ---> Catching all the unknown routes which are not defined by displaying
+                         Page not found or a 404 component
+                    <Route render={() => <h1>Page Not Fount</h1>} /> */}
 
                     {/*Redirecting routes using the Redirect component of the react router dom 
                        inside the Switch case we can use 'from' and 'to' but outside the Switch 
                        we can only use 'to', we will not able to use 'from' */}
-                    <Redirect from="/" to="/posts" />
+                    < Redirect from="/" to="/posts" />
 
                     {/*=====================================================================
                     --> Redirection of routes loading the same component for different routes
