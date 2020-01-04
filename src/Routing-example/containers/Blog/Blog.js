@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, NavLink, Switch } from 'react-router-dom';
+import { Route, NavLink, Switch, Redirect } from 'react-router-dom';
 
 import classes from './Blog.module.css';
 import Posts from '../../containers/Posts/Posts';
@@ -79,6 +79,16 @@ class RoutingBlog extends Component {
                 <Switch>
                     <Route path="/new-post" component={NewPost} />
                     <Route path="/posts" component={Posts} />
+
+                    {/*Redirecting routes using the Redirect component of the react router dom 
+                       inside the Switch case we can use 'from' and 'to' but outside the Switch 
+                       we can only use 'to', we will not able to use 'from' */}
+                    <Redirect from="/" to="/posts" />
+
+                    {/*=====================================================================
+                    --> Redirection of routes loading the same component for different routes
+                    <Route path="/" component={Posts} /> */}
+
                 </Switch>
             </div>
         );
