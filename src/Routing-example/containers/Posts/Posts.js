@@ -84,7 +84,7 @@ class Posts extends Component {
                     {posts}
                 </section>
                 {/** Nested routing this will load post details below the posts component */}
-                <Route path="/posts/:id" exact component={FullPost} />
+                <Route path={this.props.match.url + '/:id'} exact component={FullPost} />
             </div>
         )
     }

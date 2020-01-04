@@ -30,9 +30,21 @@ class FullPost extends Component {
     */
 
     componentDidMount() {
+        this.loadData();
+    }
+
+    //this solves the problem of not loading post data dynamically after clicking on the post
+    //because the componentDidMount() life cycle hook only loads the data first time on dom
+    //this does not update the dom
+    //thats why we should also use the componentDidUpdate() life cycle hook
+    componentDidUpdate() {
+        this.loadData();
+    }
+
+    loadData = () => {
         //getting the id from the params
         if (this.props.match.params.id) {
-            if (!this.state.loadedPost || (this.state.loadedPost && this.state.loadedPost.id !== this.props.id)) {
+            if (!this.state.loadedPost || (this.state.loadedPost && this.state.loadedPost.id !== parseInt(this.props.match.params.id))) {
                 axios.get('/posts/' + this.props.match.params.id)
                     .then(response => {
                         console.log(response);
@@ -44,9 +56,8 @@ class FullPost extends Component {
             }
         }
     }
-
     deletePostHandler = () => {
-        axios.delete('/posts/' + this.props.id)
+        axios.delete('/posts/' + this.props.match.params.id)
             .then(response => {
                 console.log(response);
             })
@@ -57,7 +68,7 @@ class FullPost extends Component {
 
     render() {
         let post = <p style={{ textAlign: 'center' }}>Please select a Post!</p>;
-        if (this.props.id) {
+        if (this.props.match.params.id) {
             post = <p style={{ textAlign: 'center' }}>Loading...!</p>;
         }
         // Here we need to check the loadedPost data of the state
