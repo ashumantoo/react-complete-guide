@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
-import { BrowserRouter } from 'react-router-dom';
+// import { BrowserRouter } from 'react-router-dom';
 import './App.css';
+
 // import WithClass from './src/hoc/WithClass';
 // import withClass from './hoc/withClass';
 // import Cockpit from './components/Cockpit/Cockpit';
 // import Aux from './hoc/Aux'
 // import Basic from './Basic/Basic';
 // import ListAndConditional from './components/Basic/Lists-Conditionals'
+
+import Counter from '../src/Redux-example/containers/Counter/Counter';
 
 // import Blog from './Http-Example/containers/Blog/Blog';
 import RoutingBlog from './Routing-example/containers/Blog/Blog';
@@ -42,11 +45,14 @@ class App extends Component {
       // </div>
 
       //Routing Example Blog Component
-      <BrowserRouter>
-        <div>
-          <RoutingBlog />
-        </div>
-      </BrowserRouter>
+      // <BrowserRouter>
+      //   <div>
+      //     <RoutingBlog />
+      //   </div>
+      // </BrowserRouter>
+      <div className="App">
+        <Counter />
+      </div>
     );
   }
 }
