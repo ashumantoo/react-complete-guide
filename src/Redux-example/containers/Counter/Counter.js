@@ -40,7 +40,7 @@ class Counter extends Component {
                 <CounterControl label="Add 10" clicked={this.props.onAddCounter} />
                 <CounterControl label="Subtract 15" clicked={this.props.onSubtractCounter} />
                 <hr />
-                <button onClick={this.props.onStoreResult}>Store Results</button>
+                <button onClick={() => this.props.onStoreResult(this.props.ctrl)}>Store Results</button>
                 <ul>
                     {this.props.storeResults.map(strResult => (
                         <li
@@ -60,9 +60,17 @@ class Counter extends Component {
 //This actually store a function which expect a state stored in the redux as a input and returned
 //a javascript object which is a map of props names and slices of the state stored in the redux
 const mapStateToProps = state => {
+    //before the multiple reducers
+    // return {
+    //     ctrl: state.counter,
+    //     storeResults: state.results
+    // };
+
+    //after multiple reducers we can access the state property on the name given to 
+    //the reducers
     return {
-        ctrl: state.counter,
-        storeResults: state.results
+        ctrl: state.ctr.counter,
+        storeResults: state.res.results
     };
 }
 
@@ -73,7 +81,7 @@ const mapDispatchToProps = dispatch => {
         onDecrementCounter: () => dispatch({ type: actionType.DECREMENT }),
         onAddCounter: () => dispatch({ type: actionType.ADD, val: 10 }),
         onSubtractCounter: () => dispatch({ type: actionType.SUBTRACT, val: 15 }),
-        onStoreResult: () => dispatch({ type: actionType.STORE_RESULT }),
+        onStoreResult: (result) => dispatch({ type: actionType.STORE_RESULT, result: result }),
         onDeleteResult: (id) => dispatch({ type: actionType.DELETE_RESULT, resultEleId: id })
     }
 }

@@ -1,13 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
-import { createStore } from 'redux';
-import { Provider } from 'react-redux';
+import { createStore, combineReducers } from 'redux';
+import { Provider, } from 'react-redux';
 
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import reducer from '../src/Redux-example/store/reducer';
+// import reducer from '../src/Redux-example/store/reducer';
+import counterReducer from './Redux-example/store/reducers/counter';
+import resultReducer from './Redux-example/store/reducers/result';
 
 /**=================================INTERCEPTORS========================================
  * --> Sometimes we want to handle http request and response error no matter from which 
@@ -53,8 +55,15 @@ axios.interceptors.response.use(response => {
     return Promise.reject(error);
 });
 
+//combine multiple reducers into single reducer by using the combineReducers from redux
+const rootReducer = combineReducers({
+    ctr: counterReducer,
+    res: resultReducer
+})
+
 //redux store
-const store = createStore(reducer);
+// const store = createStore(reducer);
+const store = createStore(rootReducer);
 
 //Provider is a helper component which allow us kind of inject our store into 
 //the react components and passing store as property to the Provider component
