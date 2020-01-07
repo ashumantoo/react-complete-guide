@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import CounterControl from '../../components/CounterControl/CounterControl';
 import CounterOutput from '../../components/CounterOutput/CounterOutput';
@@ -29,7 +30,7 @@ class Counter extends Component {
     render() {
         return (
             <div>
-                <CounterOutput value={this.state.counter} />
+                <CounterOutput value={this.props.ctrl} />
                 <CounterControl label="Increment" clicked={() => this.counterChangedHandler('inc')} />
                 <CounterControl label="Decrement" clicked={() => this.counterChangedHandler('dec')} />
                 <CounterControl label="Add 5" clicked={() => this.counterChangedHandler('add', 5)} />
@@ -39,4 +40,18 @@ class Counter extends Component {
     }
 }
 
-export default Counter;
+//this mapStateToProps, store an instruction about how will this state manage by redux should
+//be mapped to props you used in this container or component
+
+//This actually store a function which expect a state stored in the redux as a input and returned
+//a javascript object which is a map of props names and slices of the state stored in the redux
+const mapStateToProps = state => {
+    return {
+        ctrl: state.counter
+    };
+}
+
+//connect() it self is a function which returns a function which takes then a component as a input
+//so connect() is not really a higher order component, but
+//Its a function which returns a higher order component(hoc) 
+export default connect(mapStateToProps)(Counter);
