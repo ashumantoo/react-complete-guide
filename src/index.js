@@ -1,9 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import axios from 'axios';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import axios from 'axios';
+import reducer from '../src/Redux-example/store/reducer';
 
 /**=================================INTERCEPTORS========================================
  * --> Sometimes we want to handle http request and response error no matter from which 
@@ -20,14 +24,14 @@ import axios from 'axios';
  *    globally. 
  */
 
- //setting the base url for every http request and response
- axios.defaults.baseURL = 'https://jsonplaceholder.typicode.com';
+//setting the base url for every http request and response
+axios.defaults.baseURL = 'https://jsonplaceholder.typicode.com';
 
- //setting some common headers
- axios.defaults.headers.common['Authorization'] = 'AUTH TOKEN';
+//setting some common headers
+axios.defaults.headers.common['Authorization'] = 'AUTH TOKEN';
 
- //setting header for only post request
- axios.defaults.headers.post['Content-Type'] = 'application/json';
+//setting header for only post request
+axios.defaults.headers.post['Content-Type'] = 'application/json';
 
 
 
@@ -49,5 +53,10 @@ axios.interceptors.response.use(response => {
     return Promise.reject(error);
 });
 
-ReactDOM.render(<App />, document.getElementById('root'));
+//redux store
+const store = createStore(reducer);
+
+//Provider is a helper component which allow us kind of inject our store into 
+//the react components and passing store as property to the Provider component
+ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
 serviceWorker.unregister();
