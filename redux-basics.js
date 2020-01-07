@@ -34,6 +34,13 @@ const rootReducer = (state = initialState, action) => {
 const store = redux.createStore(rootReducer);
 console.log(store.getState());
 
+//Subscription
+store.subscribe(() => {
+    //this subscribe method of the store will subscribe all the action which are
+    //dispatched by the store
+    console.log('[Subscription]', store.getState());
+});
+
 /*====================================================================
 --> On the dispatch method of the store type property is mandatory
 --> But with the type property we can also passed any type of data
