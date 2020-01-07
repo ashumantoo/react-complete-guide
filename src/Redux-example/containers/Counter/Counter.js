@@ -31,7 +31,10 @@ class Counter extends Component {
         return (
             <div>
                 <CounterOutput value={this.props.ctrl} />
-                <CounterControl label="Increment" clicked={() => this.counterChangedHandler('inc')} />
+                {/* <CounterControl label="Increment" clicked={() => this.counterChangedHandler('inc')} /> */}
+
+                {/* using redux dispatch action */}
+                <CounterControl label="Increment" clicked={this.props.onIncrementCounter} />
                 <CounterControl label="Decrement" clicked={() => this.counterChangedHandler('dec')} />
                 <CounterControl label="Add 5" clicked={() => this.counterChangedHandler('add', 5)} />
                 <CounterControl label="Subtract 5" clicked={() => this.counterChangedHandler('sub', 5)} />
@@ -51,7 +54,14 @@ const mapStateToProps = state => {
     };
 }
 
+//dispatching the redux action
+const mapDispatchToProps = dispatch => {
+    return {
+        onIncrementCounter: () => dispatch({ type: 'INCREMENT' })
+    }
+}
+
 //connect() it self is a function which returns a function which takes then a component as a input
 //so connect() is not really a higher order component, but
 //Its a function which returns a higher order component(hoc) 
-export default connect(mapStateToProps)(Counter);
+export default connect(mapStateToProps, mapDispatchToProps)(Counter);
