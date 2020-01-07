@@ -1,3 +1,5 @@
+import * as actionType from '../store/actions';
+
 const initialState = {
     counter: 0,
     results: []
@@ -28,7 +30,7 @@ const reducer = (state = initialState, action) => {
 
     //statement using switch statement
     switch (action.type) {
-        case 'INCREMENT':
+        case actionType.INCREMENT:
             //assigning original object to a new variable so that we can 
             //manipulate the object not the original one
             const newState = Object.assign({}, state);
@@ -37,27 +39,27 @@ const reducer = (state = initialState, action) => {
         // return {
         //     counter: state.counter + 1
         // }
-        case 'DECREMENT':
+        case actionType.DECREMENT:
             return {
                 ...state,
                 counter: state.counter - 1
             }
-        case 'ADD':
+        case actionType.ADD:
             return {
                 ...state,
                 counter: state.counter + action.val
             }
-        case 'SUBTRACT':
+        case actionType.SUBTRACT:
             return {
                 ...state,
                 counter: state.counter - action.val
             }
-        case 'STORE_RESULT':
+        case actionType.STORE_RESULT:
             return {
                 ...state,
                 results: state.results.concat({ id: new Date(), value: state.counter })
             }
-        case 'DELETE_RESULT':
+        case actionType.DELETE_RESULT:
             //this is one way to Updating array without mutating the original array
             // const id = 2;
             // const newArray = [...state.results];
