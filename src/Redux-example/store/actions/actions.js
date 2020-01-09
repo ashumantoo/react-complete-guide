@@ -7,7 +7,7 @@ export const DELETE_RESULT = 'DELETE_RESULT';
 export const ADD_PERSON = 'ADD_PERSON';
 export const REMOVE_PERSON = 'REMOVE_PERSON';
 
-//creating a redux action using action creator method
+//creating a redux action using synchronous action creators method
 export const increment = () => {
     return {
         type: INCREMENT
@@ -35,10 +35,23 @@ export const subtract = (value) => {
     }
 }
 
-export const storeResult = (res) => {
+export const saveResult = (res) => {
     return {
         type: STORE_RESULT,
         result: res
+    }
+}
+/**=========================== redux-thunk ===============================================
+ * --> Redux Thunk middleware allows you to write action creators that returns a functions
+ *     instead of action. The Thunk can be used to delay the dispatch of an action, or to
+ *     dispatch only if a certain condition met.The inner function functions receives the 
+ *     store method 'dispatch' and 'getState' as parameters.
+ */
+export const storeResult = (res) => {
+    return dispatch => {
+        setTimeout(() => {
+            dispatch(saveResult(res));
+        }, 2000)
     }
 }
 
