@@ -1,10 +1,23 @@
 import * as actionType from '../actions/actionTypes';
+import { updatedObject } from '../utility';
 
 const initialState = {
     results: []
 }
 
 const reducer = (state = initialState, action) => {
+    switch (action.type) {
+        case actionType.STORE_RESULT:
+            return updatedObject(state, { results: state.results.concat({ id: new Date(), value: action.result }) });
+        case actionType.DELETE_RESULT:
+            const updatedArray = state.results.filter(result => result.id !== action.resultEleId);
+            return updatedObject(state, { results: updatedArray });
+        default:
+            return state;
+    }
+}
+
+/* const reducer = (state = initialState, action) => {
     //statement using switch statement
     switch (action.type) {
         case actionType.STORE_RESULT:
@@ -31,6 +44,6 @@ const reducer = (state = initialState, action) => {
         default:
             return state;
     }
-}
+} */
 
 export default reducer;
