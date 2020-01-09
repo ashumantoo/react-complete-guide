@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
-import { createStore, combineReducers } from 'redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider, } from 'react-redux';
 
 import './index.css';
@@ -63,9 +63,32 @@ const rootReducer = combineReducers({
     prs: personReducer
 })
 
+/**==================================== Middleware ===========================================
+ * --> Middleware is basically is a term used for a function or a code, which you could hook 
+ *     into a process which then get executed as the part of the process without stopping then
+ *     so we can add middleware and redux action still reaches to the redux reducers.
+ * 
+ * --> But using the middleware we can do something before redux action reaches to the redux
+ *     reducers. that can be simply logging something or if you want to execute asynchronous
+ *     code
+ */
+
+const logger = store => {
+    //return a function which takes next as an argument
+    return next => {
+        //return a function which takes redux action an argument
+        return action => {
+            console.log('[middleware] Dispatching ', action);
+            const result = next(action);
+            console.log('[Middleware] next state', store.getState());
+            return result;
+        }
+    }
+}
+
 //redux store
 // const store = createStore(reducer);
-const store = createStore(rootReducer);
+const store = createStore(rootReducer, applyMiddleware(logger));
 
 //Provider is a helper component which allow us kind of inject our store into 
 //the react components and passing store as property to the Provider component
