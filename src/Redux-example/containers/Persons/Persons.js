@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 
 import Person from '../../components/Person/Person';
 import AddPerson from '../../components/AddPerson/AddPerson';
-import * as actionType from '../../store/actions/actions';
+// import * as actionType from '../../store/actions/actions';
+import * as actionCreators from '../../store/actions/actions';
 
 class Persons extends Component {
     // state = {
@@ -51,8 +52,15 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onAddPerson: (name, age) => dispatch({ type: actionType.ADD_PERSON, personData: { name: name, age: age } }),
-        onRemovePerson: (id) => dispatch({ type: actionType.REMOVE_PERSON, personId: id })
+        // onAddPerson: (name, age) => dispatch({ type: actionType.ADD_PERSON, personData: { name: name, age: age } }),
+        // onRemovePerson: (id) => dispatch({ type: actionType.REMOVE_PERSON, personId: id })
+
+        //dispatching the action using action creators
+        onAddPerson: (name, age) => {
+            const personData = { name: name, age: age };
+            return dispatch(actionCreators.addPerson(personData))
+        },
+        onRemovePerson: (id) => dispatch(actionCreators.removePerson(id))
     }
 }
 
