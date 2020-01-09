@@ -10,6 +10,10 @@ const reducer = (state = initialState, action) => {
         case actionType.INCREMENT:
             //assigning original object to a new variable so that we can 
             //manipulate the object not the original one
+
+            //better to do all the data transformation logic here in the reducers
+            //instead of the action creators ,but we can do data transformation logic 
+            //there also
             const newState = Object.assign({}, state);
             newState.counter = state.counter + 1;
             return newState;
