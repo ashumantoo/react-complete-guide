@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
-import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import { Provider, } from 'react-redux';
 
 import './index.css';
@@ -73,6 +73,7 @@ const rootReducer = combineReducers({
  *     code
  */
 
+//A simple logging middleware
 const logger = store => {
     //return a function which takes next as an argument
     return next => {
@@ -86,9 +87,11 @@ const logger = store => {
     }
 }
 
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
 //redux store
 // const store = createStore(reducer);
-const store = createStore(rootReducer, applyMiddleware(logger));
+const store = createStore(rootReducer, composeEnhancers(applyMiddleware(logger)));
 
 //Provider is a helper component which allow us kind of inject our store into 
 //the react components and passing store as property to the Provider component
