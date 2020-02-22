@@ -9,11 +9,13 @@ import './App.css';
 // import Basic from './Basic/Basic';
 // import ListAndConditional from './components/Basic/Lists-Conditionals'
 
-import Counter from '../src/Redux-example/containers/Counter/Counter';
-import Persons from './Redux-example/containers/Persons/Persons';
+// import Counter from '../src/Redux-example/containers/Counter/Counter';
+// import Persons from './Redux-example/containers/Persons/Persons';
 
 // import Blog from './Http-Example/containers/Blog/Blog';
-import RoutingBlog from './Routing-example/containers/Blog/Blog';
+// import RoutingBlog from './Routing-example/containers/Blog/Blog';
+
+import Todo from './Hooks-example/components/Todo';
 class App extends Component {
   render() {
     return (
@@ -51,13 +53,22 @@ class App extends Component {
       //     <RoutingBlog />
       //   </div>
       // </BrowserRouter>
+
+      //Redux Example
+      // <div className="App">
+      //   <Counter />
+      //   <hr />
+      //   <ol>
+      //     <li>Turn this app into one which does NOT use local state (in components) but instead uses Redux</li>
+      //   </ol>
+      //   <Persons />
+      // </div>
+
       <div className="App">
-        <Counter />
-        <hr />
-        <ol>
-          <li>Turn this app into one which does NOT use local state (in components) but instead uses Redux</li>
-        </ol>
-        <Persons />
+        <div>
+          <br/>
+          <Todo />
+        </div>
       </div>
     );
   }
