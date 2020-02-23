@@ -47,6 +47,9 @@ const Todo = props => {
     // });
     //================================================================================
     useEffect(() => {
+        //here this useEffect hooks does not run only once but it runs after every render
+        //cycle so we make more and more request here because here we updated the dom using
+        //setTodoList() method to update the state and this creates a infinite loops
         //fetching the todo list data from the server
         axios.get('FIREBASE_REALTIME_DATABASE_API_URL').then(res => {
             console.log(res);
@@ -59,7 +62,26 @@ const Todo = props => {
         }).catch(error => {
             console.log(error);
         });
-    });
+
+        //if you want to run something when the component unmount then we could use some
+        //cleanups work also here inside the useEffect hook like this
+        return () => {
+            console.log('Clean up do what ever you want to do after the component unmount');
+        }
+
+        //here the second argument of the useEffect hook will take a list of the item i.e an 
+        //array for which the useEffect will look for and react will update the state only
+        //if any value from that list updates otherwise react will not execute the useEffect
+        //hook and this is the solution of the infinite loop
+
+        //and if you only want to run useEffect on mounting i.e when component mounts you 
+        //should pass an empty array in second argument of the useEffect hook
+
+        //so useEffect() hook 2nd argument
+        // 1. if no value useEffect will run of every render cycle and will creates infinite loop
+        // 2. with empty array useEffect will run only on component mount
+        // 3. with list of item in the array useEffect will run if any of the item gets updated
+    }, [todoName]);
     const inputChangeHandler = (event) => {
         setTodoName(event.target.value);
     }
