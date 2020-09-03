@@ -6,8 +6,12 @@ import './App.css';
 // import withClass from './hoc/withClass';
 // import Cockpit from './components/Cockpit/Cockpit';
 // import Aux from './hoc/Aux'
-// import Basic from './Basic/Basic';
-// import ListAndConditional from './components/Basic/Lists-Conditionals'
+import Basic from './components/Basic/Basic';
+import ListAndConditional from './components/Basic/Lists-Conditionals';
+import JSXComponent from './components/Basic/JsxComponent';
+import Welcome from './components/Basic/Welcome';
+import EventBinding from './components/Basic/EventBinding';
+import ParrentComponent from './components/Basic/ParrentComponent';
 
 // import Counter from '../src/Redux-example/containers/Counter/Counter';
 // import Persons from './Redux-example/containers/Persons/Persons';
@@ -21,12 +25,19 @@ import { MUIDataTables } from './components/MUIDataTable/MUIDataTable';
 class App extends Component {
   render() {
     return (
-      // <div className="App" >
-      //   <Cockpit></Cockpit>
-      //   {/* <Basic></Basic> */}
-      //   <hr></hr>
-      //   <ListAndConditional></ListAndConditional>
-      // </div>
+      <div className="App" >
+        <Basic />
+        <hr />
+        <ListAndConditional />
+        <hr />
+        <JSXComponent />
+        <hr />
+        <Welcome />
+        <hr />
+        <EventBinding />
+        <hr/>
+        <ParrentComponent />
+      </div>
 
       //using withClass higher order Component approach to wrapping another component
       // <WithClass classes="App" >
@@ -50,11 +61,11 @@ class App extends Component {
       // </div>
 
       // Routing Example Blog Component
-      <BrowserRouter>
-        <div>
-          <RoutingBlog />
-        </div>
-      </BrowserRouter>
+      // <BrowserRouter>
+      //   <div>
+      //     <RoutingBlog />
+      //   </div>
+      // </BrowserRouter>
 
       // Redux Example
       // <div className="App">
