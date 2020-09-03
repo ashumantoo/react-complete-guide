@@ -12,6 +12,7 @@ import * as serviceWorker from './serviceWorker';
 import counterReducer from './Redux-example/store/reducers/counter';
 import resultReducer from './Redux-example/store/reducers/result';
 import personReducer from './Redux-example/store/reducers/person';
+import todoReducer from './Redux-example/store/reducers/todo';
 
 /**=================================INTERCEPTORS========================================
  * --> Sometimes we want to handle http request and response error no matter from which 
@@ -61,7 +62,8 @@ axios.interceptors.response.use(response => {
 const rootReducer = combineReducers({
     ctr: counterReducer,
     res: resultReducer,
-    prs: personReducer
+    prs: personReducer,
+    todo: todoReducer
 })
 
 /**==================================== Middleware ===========================================

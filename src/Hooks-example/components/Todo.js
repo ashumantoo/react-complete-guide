@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import * as actions from '../../Redux-example/store/actions'
 import axios from 'axios';
 
 const Todo = props => {
+
+    const todos = useSelector(state => state.todo.todos);
+    const dispatch = useDispatch();
+    console.log(todos);
 
     //============================ useState Hook ================================
     // This useState hooks returns two values exactly two value 
@@ -24,7 +30,7 @@ const Todo = props => {
 
     //Array Destructuring and using multiple useState hook for separating the logic
     const [todoName, setTodoName] = useState('');
-    const [todoList, setTodoList] = useState([]);
+    // const [todoList, setTodoList] = useState([]);
 
     //============================== useEffect() hook ==============================
     // 1.useEffect() hook get executed immediately as soon as the components gets
@@ -58,7 +64,7 @@ const Todo = props => {
             for (const key in todoData) {
                 todos.push({ id: key, name: todoData[key].name });
             }
-            setTodoList(todos);
+            // setTodoList(todos);
         }).catch(error => {
             console.log(error);
         });
@@ -87,7 +93,7 @@ const Todo = props => {
     }
 
     const todoAddHandler = () => {
-        setTodoList(todoList.concat(todoName));
+        // setTodoList(todoList.concat(todoName));
 
         //saving todoList data to the firebase server
         axios
@@ -108,12 +114,13 @@ const Todo = props => {
                 onChange={inputChangeHandler}
                 value={todoName}
             />
-            <button type="button" onClick={todoAddHandler}>Add</button>
-            <ul>
-                {todoList.map(todo => (
-                    <li key={todo}>{todo}</li>
+            {/* <button type="button" onClick={todoAddHandler}>Add</button> */}
+            <button type="button" onClick={() => dispatch(actions.addTodo(todoName))}>Add</button>
+            <ol>
+                {todos.map(todo => (
+                    <li key={todo.id} onClick={() => dispatch(actions.removeTodo(todo.id))}>{todo.todo}</li>
                 ))}
-            </ul>
+            </ol>
         </React.Fragment>
     )
 };

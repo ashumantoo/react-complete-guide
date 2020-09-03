@@ -14,3 +14,8 @@ export {
     addPerson,
     removePerson
 } from './person';
+
+export {
+    addTodo,
+    removeTodo
+} from './todo'

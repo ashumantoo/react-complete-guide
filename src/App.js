@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import './App.css';
 
 // import WithClass from './src/hoc/WithClass';
@@ -13,9 +13,11 @@ import './App.css';
 // import Persons from './Redux-example/containers/Persons/Persons';
 
 // import Blog from './Http-Example/containers/Blog/Blog';
-// import RoutingBlog from './Routing-example/containers/Blog/Blog';
+import RoutingBlog from './Routing-example/containers/Blog/Blog';
 
 import Todo from './Hooks-example/components/Todo';
+
+import { MUIDataTables } from './components/MUIDataTable/MUIDataTable';
 class App extends Component {
   render() {
     return (
@@ -47,14 +49,14 @@ class App extends Component {
       //   <Blog />
       // </div>
 
-      //Routing Example Blog Component
-      // <BrowserRouter>
-      //   <div>
-      //     <RoutingBlog />
-      //   </div>
-      // </BrowserRouter>
+      // Routing Example Blog Component
+      <BrowserRouter>
+        <div>
+          <RoutingBlog />
+        </div>
+      </BrowserRouter>
 
-      //Redux Example
+      // Redux Example
       // <div className="App">
       //   <Counter />
       //   <hr />
@@ -62,14 +64,18 @@ class App extends Component {
       //     <li>Turn this app into one which does NOT use local state (in components) but instead uses Redux</li>
       //   </ol>
       //   <Persons />
+      //   <hr />
+      //   <Todo />
+      //   <hr />
+      //   <MUIDataTables />
       // </div>
 
-      <div className="App">
-        <div>
-          <br/>
-          <Todo />
-        </div>
-      </div>
+      // <div className="App">
+      //   <div>
+      //     <br/>
+      //     <Todo />
+      //   </div>
+      // </div>
     );
   }
 }
