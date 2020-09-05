@@ -22,21 +22,30 @@ import RoutingBlog from './Routing-example/containers/Blog/Blog';
 import Todo from './Hooks-example/components/Todo';
 
 import { MUIDataTables } from './components/MUIDataTable/MUIDataTable';
+import ConditionalRender from './components/Basic/ConditionalRender';
+import BasicForm from './components/Basic/BasicForm';
+import LifeCycleA from './components/Basic/LifeCycleA';
 class App extends Component {
   render() {
     return (
       <div className="App" >
-        <Basic />
+        {/* <Basic /> */}
         <hr />
-        <ListAndConditional />
+        {/* <ListAndConditional /> */}
         <hr />
         <JSXComponent />
         <hr />
         <Welcome />
         <hr />
         <EventBinding />
-        <hr/>
+        <hr />
         <ParrentComponent />
+        <hr />
+        <ConditionalRender />
+        <hr />
+        <BasicForm />
+        <hr/>
+        <LifeCycleA />
       </div>
 
       //using withClass higher order Component approach to wrapping another component
