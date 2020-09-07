@@ -25,14 +25,15 @@ import { MUIDataTables } from './components/MUIDataTable/MUIDataTable';
 import ConditionalRender from './components/Basic/ConditionalRender';
 import BasicForm from './components/Basic/BasicForm';
 import LifeCycleA from './components/Basic/LifeCycleA';
+import ParentComp from './components/Basic/ParentComp';
 class App extends Component {
   render() {
     return (
       <div className="App" >
         {/* <Basic /> */}
-        <hr />
+        {/* <hr /> */}
         {/* <ListAndConditional /> */}
-        <hr />
+        {/* <hr />
         <JSXComponent />
         <hr />
         <Welcome />
@@ -44,8 +45,10 @@ class App extends Component {
         <ConditionalRender />
         <hr />
         <BasicForm />
-        <hr/>
-        <LifeCycleA />
+        <hr />
+        <LifeCycleA /> */}
+        {/* <hr /> */}
+        <ParentComp />
       </div>
 
       //using withClass higher order Component approach to wrapping another component
