@@ -30,6 +30,7 @@ class RefsDemo extends Component {
   render() {
     return (
       <div>
+        <p>Ref Demo</p>
         <input type="text" name="email" ref={this.inputRef} />
         <div>
           <input type="text" name="password" />

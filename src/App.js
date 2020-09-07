@@ -27,6 +27,8 @@ import BasicForm from './components/Basic/BasicForm';
 import LifeCycleA from './components/Basic/LifeCycleA';
 import ParentComp from './components/Basic/ParentComp';
 import RefsDemo from './components/Basic/RefsDemo';
+import InputFocus from './components/Basic/InputFocus';
+import FRParrent from './components/Basic/FRParrent';
 class App extends Component {
   render() {
     return (
@@ -51,6 +53,8 @@ class App extends Component {
         <hr /> */}
         {/* <ParentComp /> */}
         <RefsDemo />
+        <InputFocus />
+        <FRParrent />
       </div>
 
       //using withClass higher order Component approach to wrapping another component
