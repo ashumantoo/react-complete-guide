@@ -26,12 +26,13 @@ import ConditionalRender from './components/Basic/ConditionalRender';
 import BasicForm from './components/Basic/BasicForm';
 import LifeCycleA from './components/Basic/LifeCycleA';
 import ParentComp from './components/Basic/ParentComp';
+import RefsDemo from './components/Basic/RefsDemo';
 class App extends Component {
   render() {
     return (
       <div className="App" >
         {/* <Basic /> */}
-        {/* <hr /> */}
+        <hr />
         {/* <ListAndConditional /> */}
         {/* <hr />
         <JSXComponent />
@@ -46,9 +47,10 @@ class App extends Component {
         <hr />
         <BasicForm />
         <hr />
-        <LifeCycleA /> */}
-        {/* <hr /> */}
-        <ParentComp />
+        <LifeCycleA />
+        <hr /> */}
+        {/* <ParentComp /> */}
+        <RefsDemo />
       </div>
 
       //using withClass higher order Component approach to wrapping another component
