@@ -9,7 +9,7 @@ import { Component } from 'react';
  *          an new/Modified componet
  */
 
-const WithCounterHoc = (WrappedComponent) => {
+const WithCounterHoc = (WrappedComponent, incrementNumber) => {
   class WithCounterHoc extends Component {
     constructor(props) {
       super(props)
@@ -21,7 +21,8 @@ const WithCounterHoc = (WrappedComponent) => {
 
     incrementCount = () => {
       this.setState(prevState => {
-        return { count: prevState.count + 1 }
+        // return { count: prevState.count + 1 }
+        return { count: prevState.count + incrementNumber }
       })
     }
 
@@ -30,6 +31,7 @@ const WithCounterHoc = (WrappedComponent) => {
         <WrappedComponent
           count={this.state.count}
           incrementCount={this.incrementCount}
+          {...this.props}    //Passing Additional props of the Wrappedcomponent
         />
       )
     }

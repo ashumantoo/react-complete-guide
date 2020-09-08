@@ -36,4 +36,4 @@ class HoverdCounter extends Component {
   }
 }
 
-export default WithCounterHoc(HoverdCounter)
+export default WithCounterHoc(HoverdCounter, 10);

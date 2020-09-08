@@ -59,7 +59,7 @@ class App extends Component {
         <InputFocus />
         <FRParrent /> */}
         {/* <HeroParentComp /> */}
-        <ClickCounter />
+        <ClickCounter name="Mantoo" />
         <HoverdCounter />
       </div>
 
