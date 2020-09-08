@@ -30,6 +30,8 @@ import RefsDemo from './components/Basic/RefsDemo';
 import InputFocus from './components/Basic/InputFocus';
 import FRParrent from './components/Basic/FRParrent';
 import HeroParentComp from './components/Basic/HeroParentComp';
+import ClickCounter from './components/Basic/ClickCounter';
+import HoverdCounter from './components/Basic/HoverdCounter';
 class App extends Component {
   render() {
     return (
@@ -56,7 +58,9 @@ class App extends Component {
         {/* <RefsDemo />
         <InputFocus />
         <FRParrent /> */}
-        <HeroParentComp />
+        {/* <HeroParentComp /> */}
+        <ClickCounter />
+        <HoverdCounter />
       </div>
 
       //using withClass higher order Component approach to wrapping another component
