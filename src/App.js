@@ -32,6 +32,11 @@ import FRParrent from './components/Basic/FRParrent';
 import HeroParentComp from './components/Basic/HeroParentComp';
 import ClickCounter from './components/Basic/ClickCounter';
 import HoverdCounter from './components/Basic/HoverdCounter';
+import ClickCounterTwo from './components/Basic/ClickCounterTwo';
+import HoverCounterTwo from './components/Basic/HoverCounterTwo';
+import User from './components/Basic/User';
+import Counter from './components/Basic/Counter';
+import RenderProps from './components/Basic/RenderProps';
 class App extends Component {
   render() {
     return (
@@ -59,8 +64,11 @@ class App extends Component {
         <InputFocus />
         <FRParrent /> */}
         {/* <HeroParentComp /> */}
-        <ClickCounter name="Mantoo" />
-        <HoverdCounter />
+        {/* HOC Example */}
+        {/* <ClickCounter name="Mantoo" />
+        <HoverdCounter /> */}
+        {/* Render Props example */}
+        <RenderProps />
       </div>
 
       //using withClass higher order Component approach to wrapping another component
