@@ -37,6 +37,8 @@ import HoverCounterTwo from './components/Basic/HoverCounterTwo';
 import User from './components/Basic/User';
 import Counter from './components/Basic/Counter';
 import RenderProps from './components/Basic/RenderProps';
+import CustomerInfo from './components/Basic/CustomerInfo';
+import { CustomerContext } from './components/Basic/CustomerContext';
 class App extends Component {
   render() {
     return (
@@ -68,7 +70,17 @@ class App extends Component {
         {/* <ClickCounter name="Mantoo" />
         <HoverdCounter /> */}
         {/* Render Props example */}
-        <RenderProps />
+        {/* <RenderProps /> */}
+        <CustomerContext.Provider
+          value={{
+            name: "Ashutosh",
+            username: "ashumantoo",
+            gender: "Male",
+            email: "ashumantoo@gmail.com"
+          }}
+        >
+          <CustomerInfo />
+        </CustomerContext.Provider>
       </div>
 
       //using withClass higher order Component approach to wrapping another component
