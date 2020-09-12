@@ -39,48 +39,53 @@ import Counter from './components/Basic/Counter';
 import RenderProps from './components/Basic/RenderProps';
 import CustomerInfo from './components/Basic/CustomerInfo';
 import { CustomerContext } from './components/Basic/CustomerContext';
+import UseStateComp from './Hooks-example/components/useStateComp';
+import UseStateComp2 from './Hooks-example/components/useStateComp2';
+import UseStateComp3 from './Hooks-example/components/useStateComp3';
+import UseStateComp4 from './Hooks-example/components/useStateComp4';
 class App extends Component {
   render() {
     return (
-      <div className="App" >
-        {/* <Basic /> */}
-        <hr />
-        {/* <ListAndConditional /> */}
-        {/* <hr />
-        <JSXComponent />
-        <hr />
-        <Welcome />
-        <hr />
-        <EventBinding />
-        <hr />
-        <ParrentComponent />
-        <hr />
-        <ConditionalRender />
-        <hr />
-        <BasicForm />
-        <hr />
-        <LifeCycleA />
-        <hr /> */}
-        {/* <ParentComp /> */}
-        {/* <RefsDemo />
-        <InputFocus />
-        <FRParrent /> */}
-        {/* <HeroParentComp /> */}
-        {/* HOC Example */}
-        {/* <ClickCounter name="Mantoo" />
-        <HoverdCounter /> */}
-        {/* Render Props example */}
-        {/* <RenderProps /> */}
-        <CustomerContext.Provider
-          value={{
-            name: "Ashutosh",
-            username: "ashumantoo",
-            gender: "Male",
-            email: "ashumantoo@gmail.com"
-          }}
-        >
-          <CustomerInfo />
-        </CustomerContext.Provider>
+      // <div className="App" >
+      //   <Basic />
+      //   <hr />
+      //   <ListAndConditional />
+      //   <hr />
+      //   <JSXComponent />
+      //   <hr />      
+      //   <ParrentComponent />
+      //   <hr />
+      //   <ConditionalRender />
+      //   <hr />
+      //   <BasicForm />
+      //   <hr />
+      //   <LifeCycleA />
+      //   <hr />
+      //   <ParentComp />
+      //   <RefsDemo />
+      //   <InputFocus />
+      //   <FRParrent />
+      //   <HeroParentComp />
+      //   <ClickCounter name="Mantoo" />
+      //   <HoverdCounter />
+      //   <RenderProps />
+      //   <CustomerContext.Provider
+      //     value={{
+      //       name: "Ashutosh",
+      //       username: "ashumantoo",
+      //       gender: "Male",
+      //       email: "ashumantoo@gmail.com"
+      //     }}
+      //   >
+      //     <CustomerInfo />
+      //   </CustomerContext.Provider>
+      // </div>
+
+      <div className="App">
+        <UseStateComp />
+        <UseStateComp2 />
+        <UseStateComp3 />
+        <UseStateComp4 />
       </div>
 
       //using withClass higher order Component approach to wrapping another component
