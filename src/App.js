@@ -43,6 +43,12 @@ import UseStateComp from './Hooks-example/components/useStateComp';
 import UseStateComp2 from './Hooks-example/components/useStateComp2';
 import UseStateComp3 from './Hooks-example/components/useStateComp3';
 import UseStateComp4 from './Hooks-example/components/useStateComp4';
+import UseEffectComp from './Hooks-example/components/useEffect/useEffectComp';
+import UseEffectComp2 from './Hooks-example/components/useEffect/useEffectComp2';
+import UseEffectComp3 from './Hooks-example/components/useEffect/useEffectComp3';
+import UseEffectComp4 from './Hooks-example/components/useEffect/useEffectComp4';
+import DataFetching from './Hooks-example/components/useEffect/DataFetching';
+import DataFetching2 from './Hooks-example/components/useEffect/DataFetching2';
 class App extends Component {
   render() {
     return (
@@ -81,11 +87,20 @@ class App extends Component {
       //   </CustomerContext.Provider>
       // </div>
 
+      // <div className="App">
+      //   <UseStateComp />
+      //   <UseStateComp2 />
+      //   <UseStateComp3 />
+      //   <UseStateComp4 />
+      // </div>
+
       <div className="App">
-        <UseStateComp />
-        <UseStateComp2 />
-        <UseStateComp3 />
-        <UseStateComp4 />
+        {/* <UseEffectComp />
+        <UseEffectComp2 />
+        <UseEffectComp3 />
+        <UseEffectComp4 /> */}
+        {/* <DataFetching /> */}
+        <DataFetching2 />
       </div>
 
       //using withClass higher order Component approach to wrapping another component
